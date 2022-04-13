@@ -1,0 +1,40 @@
+﻿@using UmbracoProject1.Controllers;
+@using UmbracoProject1.Models
+@model EmailViewModel
+
+
+@using (Html.BeginUmbracoForm<HomeController>(nameof(HomeController.SendEmail)))
+        {
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" asp-for="Name" class="form-control" placeholder="Sender Name">
+                     <span id="nameValidation" asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="email" asp-for="Email" class="form-control" placeholder="Email">
+                     <span id="EmailValidation" asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="text" asp-for="Subject" class="form-control" placeholder="Subject">
+                     <span id="SubjectValidation" asp-validation-for="Subject" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <textarea class="form-control"  asp-for="Message" id="message" cols="30" rows="7"
+                        placeholder="Message"></textarea>
+                         <span id="MessageValidation" asp-validation-for="Message" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Send Email</button>
+                </div>
+            </div>
+        </div>
+        }
